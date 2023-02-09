@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>It's me</h1>
+
+<div>
+
+    <div>{{ "+1 year" | date('Y') }}</div>
+
+    {# créer une variable ! #}
+    {% set name = "Skjöldr" %}
+    <h2>{{ name | upper }}</h2>
+
+
+    {# créer un tableau #}
+    {% set colors = ["orange", "brown", "teal", "blue"] %}
+
+    <div>nombre de couleurs : {{ colors | length }}</div>
+    <div>{{ colors | join(' / ') }}</div>
+
+    {% for color in colors %}
+        <div>{{ loop.index }}</div>
+    <div style="background-color: {{ color }}">{{ color }}</div>
+    {% endfor %}
+
+    {# un objet #}
+    {% set book = {
+        title: 'Guttensen saga',
+        year: 1978,
+        author: "Skjöldr Guttensen"}
+    %}
+
+    <h3>{{ book.author }}</h3>
+    <div>
+        {% for key, val in book %}
+        <div>{{ key }} : {{ val }}</div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>
